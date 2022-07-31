@@ -10,3 +10,11 @@ Container Orchsetration Engine is a tool that automates <b>deploying, scaling, a
   * Apache Mesos
   * Kubernetes etc.
 
+* Container Orchestration Engine - Features
+  * Clustering
+  * Scheduling
+  * Scalability
+  * Load balancing
+  * Fault tolerance
+  * Deployment
+
