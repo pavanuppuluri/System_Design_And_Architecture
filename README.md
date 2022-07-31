@@ -48,6 +48,9 @@ This repo contains various concepts realted to software development, design and 
   <tr><td>Difficult to scale</td><td>Can be updated, deployed and scaled rapidly to meet demand</td></tr>
  </table>
  
- 
+## Where do microservices run?
+  * Physical servers
+  * Virtual machines
+  * Containers
 
 
