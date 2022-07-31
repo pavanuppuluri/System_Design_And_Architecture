@@ -7,7 +7,7 @@ Container Orchsetration Engine is a tool that automates <b>deploying, scaling, a
 
 * <b>Container Orchestration Tools</b>
   * Docker Swarm
-  * Apache Mesos
+  * Marathon (Apache Mesos)
   * <b>Kubernetes</b> etc.
 
 * <b>Features</b>
