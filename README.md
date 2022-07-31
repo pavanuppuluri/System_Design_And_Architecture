@@ -40,6 +40,14 @@ This repo contains various concepts realted to software development, design and 
 
 
 ## Monolithic vs MicroServices
-
+ <table>
+  <tr><td align="center"><b>Monolithic</b> </td><td align="center"><b>MicroServices</b> </td></tr>
+  <tr><td>Processes are tightly coupled and run as a single service</td><td>One service per process</td></tr>
+  <tr><td>Adding features becomes more complex</td><td>Each service performs one single function</td></tr>
+  <tr><td>Technology dependent</td><td>Technology independent</td></tr>
+  <tr><td>Difficult to scale</td><td>Can be updated, deployed and scaled rapidly to meet demand</td></tr>
+ </table>
+ 
+ 
 
 
