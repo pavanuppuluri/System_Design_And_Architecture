@@ -16,5 +16,5 @@ Container Orchsetration Engine is a tool that automates <b>deploying, scaling, a
   * Scalability
   * Load balancing
   * Fault tolerance
-  * Deployment
+  * Deployment (Recreate/Rolling update etc.)
 
