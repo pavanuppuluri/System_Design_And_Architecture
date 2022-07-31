@@ -2,7 +2,7 @@
 This repo contains various concepts realted to software development, design and architecture
 
 [Monolithic Vs MicroServices](https://github.com/user/repo/blob/branch/other_file.md)
-[go](http://stackoverflow.com){:target="_blank" rel="noopener"}
+ <a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a> 
 
 ## Monolithic architecture
 <br>
