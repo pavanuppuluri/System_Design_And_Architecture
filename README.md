@@ -17,4 +17,5 @@ This repo contains various concepts realted to software development, design and 
   <tr><td></td><td>Tight coupling between components</td></tr>
   <tr><td></td><td>Frequent deployments are difficult</td></tr>
   <tr><td></td><td>Need to scale entire application stack. Granular scaling not possible.</td></tr>
+  <tr><td></td><td>Dynamic scaling is difficult</td></tr>
  </table>
