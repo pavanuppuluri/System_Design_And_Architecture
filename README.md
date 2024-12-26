@@ -21,3 +21,5 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Docker Port Mapping](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/docker-port-mapping.md)
 <br>
+[Running Application As A Container](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/running%20app%20as%20a%20container.md)
+<br>
