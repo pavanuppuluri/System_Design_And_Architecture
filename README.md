@@ -6,5 +6,7 @@ This repo contains various concepts and best practices related to software devel
 [Container Orchestration Engine](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/coe.md)
 <br>
 [How to right size & identify service boundaries of microservices?](https://github.com/pavanuppuluri/system-design-and-architecture-best-practices/blob/master/microservice_size.md)
- 
+<br>
+[Microservices architecture - Example](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/sample%20micro%20service%20architecture.md)
+
 
