@@ -12,3 +12,5 @@ This repo contains various concepts and best practices related to software devel
 [How to migrate monolithic to microservices?](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/monolithic_to_ms.md)
 <br>
 [Deployment, Portability & Scalability](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/deployment_portablity_scalability.md)
+<br>
+[Virtual Machine vs Container](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/container_vs_vm.md)
