@@ -4,5 +4,7 @@ This repo contains various concepts and best practices related to software devel
 [Monolithic Vs MicroServices](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/monolithic_vs_microservices.md)
 <br>
 [Container Orchestration Engine](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/coe.md)
+<br>
+[How to right size & identify service boundaries of microservices?](https://github.com/pavanuppuluri/system-design-and-architecture-best-practices/blob/master/microservice_size.md)
  
 
