@@ -10,3 +10,5 @@ This repo contains various concepts and best practices related to software devel
 [Microservices architecture - Example](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/sample%20micro%20service%20architecture.md)
 <br>
 [How to migrate monolithic to microservices?](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/monolithic_to_ms.md)
+<br>
+[Deployment, Portability $ Scalability?](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/deployment_portablity_scalability.md)
