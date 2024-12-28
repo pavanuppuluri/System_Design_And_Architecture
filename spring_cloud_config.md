@@ -18,6 +18,7 @@ spring:
       server:
         git:
           uri: https://github.com/myorg/myconfigrepo
+          default-label: main
           searchPaths: config
           cloneOnStart: true
           username: myusername
