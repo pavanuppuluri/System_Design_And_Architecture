@@ -170,4 +170,5 @@ spring:
 9. **Classpath**: Read from files bundled in the application’s classpath.
 
 **Note**
+<br>
 Native profile will be used when we are using File System / Classpath way
