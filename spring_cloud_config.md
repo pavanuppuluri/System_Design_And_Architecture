@@ -168,3 +168,6 @@ spring:
 7. **Zookeeper**: Use Apache Zookeeper for distributed configuration.
 8. **Custom Backend**: Implement your own backend using `EnvironmentRepository`.
 9. **Classpath**: Read from files bundled in the application’s classpath.
+
+**Note**
+Native profile will be used when we are using File System / Classpath way
