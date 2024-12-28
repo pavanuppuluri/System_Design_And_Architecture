@@ -3,7 +3,7 @@ This repo contains various concepts and best practices related to software devel
 
 [Monolithic Vs MicroServices](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/monolithic_vs_microservices.md)
 <br>
-[Docker Commands](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/cloud_native.md)
+[Cloud Native Applications](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/cloud_native.md)
 <br>
 [Container Orchestration Engine](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/coe.md)
 <br>
