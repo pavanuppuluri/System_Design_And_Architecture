@@ -31,3 +31,5 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Docker Commands](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/docker_commands.md)
 <br>
+[Configuration Management in Microservices](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/config_mgt.md)
+<br>
