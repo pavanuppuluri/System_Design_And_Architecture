@@ -291,9 +291,23 @@ Along with the payload give Session Id as 1234
 Now submitting this event message should be consumed by our local running rewarditemprocessor service
 
 
+**Trouble shooting tips**
 
+1. You may get an error while downloading file in Step4
 
+   To resolve this, download the certificate of the blob storage url and install it locally
 
+    **Sample command**
+   
+        keytool -import -trustcacerts
+           -keystore "/Users/pavanu/Library/Java/JavaVirtualMachines/openjdk-23/Contents/Home/lib/security/cacerts”
+           -storepass changeit
+           -alias rewardadminfilemanagerCert
+           -file "/Users/kavyasrutiputrevu/Downloads/_.global.gw01.aks01.gwc.nonprod.azure.intra.pepsico.com.pem"
+
+3. Event pulbiishing may be failing
+
+   Ensure to provide unique id in the event payload
 
 
 
