@@ -21,6 +21,12 @@ Key = file
 Type = File
 Value = File to be uploaded
 
+**Sample file**
+
+<img width="368" alt="image" src="https://github.com/user-attachments/assets/d4949888-953f-44d5-9fa8-9049aad729b8" />
+
+**Request**
+
 <img width="1262" alt="image" src="https://github.com/user-attachments/assets/fd077ae6-aa36-46dd-9994-be45adbeaca9" />
 
 **API Response**
