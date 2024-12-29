@@ -9,8 +9,9 @@
 
 ### Step1 - Upload file 
 
-| Repo           | [dtcloyalty-admin-rewardsadmin-filemanager](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-filemanager) |
+|            |  |
 |--------------------|-----------------------------------------------------------------------------------------------------|
+| Repo           | [dtcloyalty-admin-rewardsadmin-filemanager](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-filemanager) |
 | API Endpoint   | [http://localhost:8080/files/upload](http://localhost:8080/files/upload)                            |
 | Example<br>Parameters     | `program_id=018a2bd5-fdc2-77ce-9367-7d700186d5ae`<br>`partner_id=8834025b-b51d-4669-9973-200f07a9ed54` |
 | Body           | **Key** = file<br>**Type** = File<br>**Value** = File to be uploaded                                |
@@ -53,8 +54,9 @@
 
 ### Step2 - Create Reward Item Group
 
-| Repo           | [dtcloyalty-admin-rewardsadmin-rewardsmanager](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-rewardsmanager) |
+|            | |
 |--------------------|-----------------------------------------------------------------------------------------------------|
+| Repo           | [dtcloyalty-admin-rewardsadmin-rewardsmanager](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-rewardsmanager) |
 | API Endpoint   | http://localhost:8080/reward-item-groups                            |
 
 
@@ -143,8 +145,9 @@
 
 Run below repo locally to consume an event
 
-| Repo           | [dtcloyalty-runtime-consumerrewards-deployment-service](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-runtime-consumerrewards-deployment-service) |
+|            |  |
 |--------------------|-----------------------------------------------------------------------------------------------------|
+| Repo           | [dtcloyalty-runtime-consumerrewards-deployment-service](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-runtime-consumerrewards-deployment-service) |
 | Raise event   | Login to [ServiceBus](https://portal.azure.com/#@pepsico.onmicrosoft.com/resource/subscriptions/8a22bd18-1080-472c-a8af-da15be88b076/resourceGroups/pep-dop-nonprod-gwc-01-rg/providers/Microsoft.ServiceBus/namespaces/pep-cep-kz-gwc-dev/topics/dtc-loyalty-sb-consumerrewards-outbound/subscriptions/loyalty-dtcloyalty-rewards-test/explorer)|
 | Event type   | com.pepsico.dtcloyalty.configurationnadmin.REWARD_ITEM_GROUP_CREATED.v1 |
 | Message body type   | application/json |
@@ -211,8 +214,9 @@ Now submitting this event message should be consumed by our local running deploy
 
 Run below repo locally to consume an event
 
-| Repo           | [dtcloyalty-admin-rewardsadmin-rewarditemprocessor](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-rewarditemprocessor) |
+|               |     |
 |--------------------|-----------------------------------------------------------------------------------------------------|
+| Repo           | [dtcloyalty-admin-rewardsadmin-rewarditemprocessor](https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-rewarditemprocessor) |
 | Raise event   | Login to [ServiceBus](https://portal.azure.com/#@pepsico.onmicrosoft.com/resource/subscriptions/8a22bd18-1080-472c-a8af-da15be88b076/resourceGroups/pep-dop-nonprod-gwc-01-rg/providers/Microsoft.ServiceBus/namespaces/pep-cep-kz-gwc-dev/topics/dtc-loyalty-sb-consumerrewards-outbound/subscriptions/loyalty-dtcloyalty-rewards-test/explorer)|
 | Event type   | com.pepsico.dtcloyalty.consumerrewards.REWARD_ITEM_GROUP_DEPLOYED.v1 |
 | Message body type   | application/json |
@@ -274,6 +278,17 @@ Run below repo locally to consume an event
 ```
 
 Now submitting this event message should be consumed by our local running rewarditemprocessor service
+
+## Key tables involved
+
+| Schema                        | Table                       |
+|--------------------------------|-------------------------------|
+| rewardsmanager                 | rewards_item_group            |
+| rewardsmanager                 | rewards_item_group_file_data  |
+| rewardsmanager                 | rewards_item_group_file_meta_data |
+| RUNTIME_CONSUMER_REWARDS       | rewards_item_group            |
+| RUNTIME_CONSUMER_REWARDS       | rewards_item_group_file_data  |
+| RUNTIME_CONSUMER_REWARDS       | rewards_item_group_file_meta_data |
 
 
 ## Trouble shooting tips
