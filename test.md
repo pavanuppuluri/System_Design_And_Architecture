@@ -299,6 +299,29 @@ Now submitting this event message should be consumed by our local running reward
 | **Event publishing may be failing**       | Ensure to provide a unique ID in the event payload.                                                |
 
 
+Debug point can be added in processEvent method of ProductMessageProcessor.java
+
+<img width="913" alt="image" src="https://github.com/user-attachments/assets/ea946c55-6c3e-4fd8-a402-b9b50c1647b3" />
+
+Debug point can be added in getProcessingRunner method of ProductMessageProcessor.java
+
+<img width="921" alt="image" src="https://github.com/user-attachments/assets/0de106af-2f3d-4b3a-b993-9290a47bdbf7" />
+
+Deployed event message published but not getting captured
+
+AZURE_SERVICEBUS_REWARDITEMGROUP_TOPIC_NAME= "dtc-loyalty-sb-consumerrewards-outbound"
+PEPSICO_REWARDITEMGROUP_DEPLOYED= "com.pepsico.dtcloyalty.consumerrewards.REWARD_ITEM_GROUP_DEPLOYED.v1"
+FILE_DOWNLOAD_URL = "https://pep-joy-rewardsadminfilemanagerkaz-dev.global.gw01.aks01.gwc.nonprod.azure.intra.pepsico.com"
+
+Created event message published but not getting captured
+
+AZURE_SERVICEBUS_REWARDS_ADMIN_TOPIC_NAME= "dtc-loyalty-sb-rewardsadmin-outbound"
+PEPSICO_REWARD_ITEM_GROUP_CREATED= "com.pepsico.dtcloyalty.rewardsadmin.REWARD_ITEM_GROUP_CREATED.v1"
+
+
+
+
+
 
 
 
