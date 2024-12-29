@@ -1,25 +1,21 @@
 # Create Partner Code Group (Reward Item Group) Flow
 
-## Step1
+## Overview of steps
+- Step1 - Upload file
+- Step2 - Create Reward Item Group
+- Step3 - Publish REWARD_ITEM_GROUP_CREATED.v1 and consume it
+- Step4 - Publish REWARD_ITEM_GROUP_DEPLOYED.v1 and consume it
 
-Upload file 
 
-**Repo**
-https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-filemanager
+### Step1 - Upload file 
 
-**Api Endpoint**
-http://localhost:8080/files/upload
+| Repo           | https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-filemanager |
+|--------------------|-----------------------------------------------------------------------------------------------------|
+| API Endpoint   | [http://localhost:8080/files/upload](http://localhost:8080/files/upload)                            |
+| Example<br>Parameters     | `program_id=018a2bd5-fdc2-77ce-9367-7d700186d5ae`<br>`partner_id=8834025b-b51d-4669-9973-200f07a9ed54` |
+| Body           | **Key** = file<br>**Type** = File<br>**Value** = File to be uploaded                                |
 
-**Example**
 
-Parameters
-program_id=018a2bd5-fdc2-77ce-9367-7d700186d5ae
-partner_id=8834025b-b51d-4669-9973-200f07a9ed54
-
-Body
-Key = file 
-Type = File
-Value = File to be uploaded
 
 **Sample file**
 
@@ -55,13 +51,12 @@ Value = File to be uploaded
 ]
 ```
 
-## Step2
+### Step2 - Create Reward Item Group
 
-**Repo**
-https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-rewardsmanager
+| Repo           | https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-rewardsmanager |
+|--------------------|-----------------------------------------------------------------------------------------------------|
+| API Endpoint   | http://localhost:8080/reward-item-groups                            |
 
-**Api Endpoint**
-http://localhost:8080/reward-item-groups
 
 **Sample Request Body**
 ```
@@ -144,7 +139,7 @@ http://localhost:8080/reward-item-groups
 <img width="1223" alt="image" src="https://github.com/user-attachments/assets/b2ce633c-1f87-4de0-8c7f-0cd7f514fca9" />
 
 
-## Step3
+### Step3 - Publish REWARD_ITEM_GROUP_CREATED.v1 and consume it
 
 Run below repo locally to consume an event
 
@@ -217,7 +212,7 @@ Along with the payload give Session Id as 1234
 
 Now submitting this event message should be consumed by our local running deployment service
 
-## Step4
+### Step4 - Publish REWARD_ITEM_GROUP_DEPLOYED.v1 and consume it
 
 Run below repo locally to consume an event
 
@@ -291,23 +286,13 @@ Along with the payload give Session Id as 1234
 Now submitting this event message should be consumed by our local running rewarditemprocessor service
 
 
-**Trouble shooting tips**
+## Trouble shooting tips
 
-1. You may get an error while downloading file in Step4
+| Issue                                      | Solution                                                                                           |
+|--------------------------------------------|----------------------------------------------------------------------------------------------------|
+| **Error while downloading file in Step4**  | Download the certificate of the blob storage URL and install it locally.   <br><br> Command Example <br><br> ```keytool -import -trustcacerts -keystore "/Users/pavanu/Library/Java/JavaVirtualMachines/openjdk-23/Contents/Home/lib/security/cacerts" -storepass changeit -alias rewardadminfilemanagerCert -file "/Users/kavyasrutiputrevu/Downloads/_.global.gw01.aks01.gwc.nonprod.azure.intra.pepsico.com.pem"```                       |
+| **Event publishing may be failing**       | Ensure to provide a unique ID in the event payload.                                                |
 
-   To resolve this, download the certificate of the blob storage url and install it locally
-
-    **Sample command**
-   
-        keytool -import -trustcacerts
-           -keystore "/Users/pavanu/Library/Java/JavaVirtualMachines/openjdk-23/Contents/Home/lib/security/cacerts”
-           -storepass changeit
-           -alias rewardadminfilemanagerCert
-           -file "/Users/kavyasrutiputrevu/Downloads/_.global.gw01.aks01.gwc.nonprod.azure.intra.pepsico.com.pem"
-
-3. Event pulbiishing may be failing
-
-   Ensure to provide unique id in the event payload
 
 
 
