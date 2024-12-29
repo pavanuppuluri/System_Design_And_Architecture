@@ -99,4 +99,204 @@ http://localhost:8080/reward-item-groups
 }
 ```
 
+**API Response**
+```
+{
+    "reward_item_file_data": [
+        {
+            "name": "10_Codes069.txt",
+            "size": 170,
+            "reward_item_group_id": "d475ae59-66a4-489e-82dc-7efc1b3dc877",
+            "metadata_id": "2fd2ce3a-d0f4-4140-812b-eff226b29b3b",
+            "metadata": {
+                "tags": [
+                    "UploadDate=2024-12-27",
+                    "FileName=8834025b-b51d-4669-9973-200f07a9ed54/10_Codes06.txt",
+                    "ProgramId=018a2bd5-fdc2-77ce-9367-7d700186d5ae",
+                    "PartnerId=8834025b-b51d-4669-9973-200f07a9ed54"
+                ],
+                "container_name": "kaz",
+                "uploaded_by": "SYSTEM",
+                "uploaded_at": "2024-12-27 23:15:33",
+                "description": "SAVED FILE 8834025b-b51d-4669-9973-200f07a9ed54/10_Codes06.txt",
+                "id": "2fd2ce3a-d0f4-4140-812b-eff226b29b3b"
+            },
+            "id": "b75c4af3-8e77-4f0d-bbfa-cd14f55e9c81"
+        }
+    ],
+    "name": "KZrewarditemgroup145",
+    "description": "KZrewarditemgroup145",
+    "partner_id": "8834025b-b51d-4669-9973-200f07a9ed54",
+    "program_id": "018a2bd5-fdc2-77ce-9367-7d700186d5ae",
+    "code_warning_limit_percentage": 80,
+    "is_active": true,
+    "exhausted_code": 0,
+    "code_count": 0,
+    "is_imported": false,
+    "start_date": "2024-10-28T08:03:18",
+    "end_date": "2025-07-12T08:03:18",
+    "id": "d475ae59-66a4-489e-82dc-7efc1b3dc877",
+    "status": "INACTIVE",
+    "processing_status": "IMPORTING"
+}
+```
+
+<img width="1223" alt="image" src="https://github.com/user-attachments/assets/b2ce633c-1f87-4de0-8c7f-0cd7f514fca9" />
+
+
+## Step3
+
+Run below repo locally to consume an event
+
+**Repo**
+https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-runtime-consumerrewards-deployment-service
+
+Raise com.pepsico.dtcloyalty.configurationnadmin.REWARD_ITEM_GROUP_CREATED.v1
+
+**How to do it?**
+- Login to
+  https://portal.azure.com/#@pepsico.onmicrosoft.com/resource/subscriptions/8a22bd18-1080-472c-a8af-da15be88b076/resourceGroups/pep-dop-nonprod-gwc-01-rg/providers/Microsoft.ServiceBus/namespaces/pep-cep-kz-gwc-dev/topics/dtc-loyalty-sb-consumerrewards-outbound/subscriptions/loyalty-dtcloyalty-rewards-test/explorer
+- Send New Message
+
+**Sample Payload**
+
+```
+{
+    "specversion": "1.0",
+    "id": "ao1026e003a-a103ca-a33da-b1130b-0d8a27ba35a106",
+    "source": "com.pepsico.dtcloyalty.adminrewarditemgroup",
+    "type": "com.pepsico.dtcloyalty.configurationnadmin.REWARD_ITEM_GROUP_CREATED.v1",
+    "datacontenttype": "application/json",
+    "dataschema": "",
+    "time": "2024-11-30T11:24:59.7377393Z",
+    "messagepublishingscope": "DOMAIN_EXTERNAL",
+    "data": {
+        "reward_item_file_data": [
+            {
+                "name": "10_Codes06.txt",
+                "size": 170,
+                "type": "text/plain",
+                "metadata_id": "bd918371-9665-4194-88c7-ee42d09929f9",
+                "reward_item_group_id": "6080bcf1-f4fb-429e-9234-0e8a9090549b",
+                "metadata": {
+                    "tags": [
+                        "UploadDate=2024-12-27",
+                        "FileName=8834025b-b51d-4669-9973-200f07a9ed54/10_Codes06.txt",
+                        "ProgramId=018a2bd5-fdc2-77ce-9367-7d700186d5ae",
+                        "PartnerId=8834025b-b51d-4669-9973-200f07a9ed54"
+                    ],
+                    "container_name": "kaz",
+                    "uploaded_by": "SYSTEM",
+                    "uploaded_at": "2024-12-27 23:15:33",
+                    "description": "SAVED FILE 8834025b-b51d-4669-9973-200f07a9ed54/10_Codes06.txt",
+                    "id": "bd918371-9665-4194-88c7-ee42d09929f9"
+                },
+                "id": "f39a4f5f-ace7-4bcc-a691-a03708d67d3f"
+            }
+        ],
+        "name": "KZrewarditemgroup141",
+        "description": "KZrewarditemgroup141",
+        "partner_id": "8834025b-b51d-4669-9973-200f07a9ed54",
+        "program_id": "018a2bd5-fdc2-77ce-9367-7d700186d5ae",
+        "code_warning_limit_percentage": 80,
+        "is_active": true,
+        "exhausted_code": 0,
+        "code_count": 0,
+        "is_imported": false,
+        "start_date": "2024-10-28T08:03:18",
+        "end_date": "2025-07-12T08:03:18",
+        "id": "6080bcf1-f4fb-429e-9234-0e8a9090549b",
+        "status": "INACTIVE",
+        "processing_status": "IMPORTING"
+    }
+}
+```
+
+Message type = application/json
+Along with the payload give Session Id as 1234
+
+Now submitting this event message should be consumed by our local running deployment service
+
+## Step4
+
+Run below repo locally to consume an event
+
+**Repo**
+https://dev.azure.com/PepsiCoIT/PEPCommerce_Loyalty/_git/dtcloyalty-admin-rewardsadmin-rewarditemprocessor
+
+Raise com.pepsico.dtcloyalty.consumerrewards.REWARD_ITEM_GROUP_DEPLOYED.v1
+
+**How to do it?**
+- Login to
+  https://portal.azure.com/#@pepsico.onmicrosoft.com/resource/subscriptions/8a22bd18-1080-472c-a8af-da15be88b076/resourceGroups/pep-dop-nonprod-gwc-01-rg/providers/Microsoft.ServiceBus/namespaces/pep-cep-kz-gwc-dev/topics/dtc-loyalty-sb-consumerrewards-outbound/subscriptions/loyalty-dtcloyalty-rewards-test/explorer
+- Send New Message
+
+**Sample Payload**
+
+```
+{
+    "specversion": "1.0",
+    "id": "ao1026e003a-a103ca-a33da-b1130b-0d8a27ba35a106",
+    "source": "com.pepsico.dtcloyalty.adminrewarditemgroup",
+    "type": "com.pepsico.dtcloyalty.consumerrewards.REWARD_ITEM_GROUP_DEPLOYED.v1",
+    "datacontenttype": "application/json",
+    "dataschema": "",
+    "time": "2024-11-30T11:24:59.7377393Z",
+    "messagepublishingscope": "DOMAIN_EXTERNAL",
+    "data": {
+        "reward_item_file_data": [
+            {
+                "name": "10_Codes06.txt",
+                "size": 170,
+                "type": "text/plain",
+                "meta_data_id": "bd918371-9665-4194-88c7-ee42d09929f9",
+                "reward_item_group_id": "6080bcf1-f4fb-429e-9234-0e8a9090549b",
+                "metadata": {
+                    "tags": [
+                        "UploadDate=2024-12-27",
+                        "FileName=8834025b-b51d-4669-9973-200f07a9ed54/10_Codes06.txt",
+                        "ProgramId=018a2bd5-fdc2-77ce-9367-7d700186d5ae",
+                        "PartnerId=8834025b-b51d-4669-9973-200f07a9ed54"
+                    ],
+                    "container_name": "kaz",
+                    "uploaded_by": "SYSTEM",
+                    "uploaded_at": "2024-12-27 23:15:33",
+                    "description": "SAVED FILE 8834025b-b51d-4669-9973-200f07a9ed54/10_Codes06.txt",
+                    "id": "bd918371-9665-4194-88c7-ee42d09929f9"
+                },
+                "id": "f39a4f5f-ace7-4bcc-a691-a03708d67d3f"
+            }
+        ],
+        "name": "KZrewarditemgroup141",
+        "description": "KZrewarditemgroup141",
+        "partner_id": "8834025b-b51d-4669-9973-200f07a9ed54",
+        "program_id": "018a2bd5-fdc2-77ce-9367-7d700186d5ae",
+        "code_warning_limit_percentage": 80,
+        "is_active": true,
+        "exhausted_code": 0,
+        "code_count": 0,
+        "is_imported": false,
+        "start_date": "2024-10-28T08:03:18",
+        "end_date": "2025-07-12T08:03:18",
+        "id": "6080bcf1-f4fb-429e-9234-0e8a9090549b",
+        "status": "INACTIVE",
+        "processing_status": "IMPORTING"
+    }
+}
+```
+
+Message type = application/json
+Along with the payload give Session Id as 1234
+
+Now submitting this event message should be consumed by our local running rewarditemprocessor service
+
+
+
+
+
+
+
+
+
+
 
