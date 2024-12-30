@@ -37,3 +37,5 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Encryption & Decryption of Properties in Spring Cloud Config](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/spring_cloud_config_ed.md)
 <br>
+[Refresh configurations at runtime using refresh/path](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/refresh_config.md)
+<br>
