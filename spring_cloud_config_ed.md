@@ -1,34 +1,118 @@
 # Encrypt and Decrypt Properties in Spring Boot Cloud Config
 
-In Spring Cloud Config, you can **encrypt** and **decrypt** sensitive properties (such as passwords, API keys, and other sensitive data) using a **symmetric encryption** algorithm. The most common encryption/decryption approach is to use **JCE (Java Cryptography Extension)** or a **KMS (Key Management Service)** like **AWS KMS** or **HashiCorp Vault**.
+## Generate Keystore for Encryption/Decryption:
 
-Here’s how you can encrypt and decrypt properties in **Spring Boot** with **Spring Cloud Config**:
+Before setting up the Config Server, you need a keystore file to handle encryption/decryption. 
+<br> You can use keytool (provided by Java) to generate a keystore.
 
-## 1. Using Spring Cloud Config Server with Encryption/Decryption
-
-### Encrypting a Property
-
-In Spring Cloud Config, encryption can be done by using the `encrypt` command from the `Spring Cloud Config` client. Here’s how to encrypt a value:
-
-#### Example:
-```bash
-$ curl http://localhost:8888/encrypt -d 'mySecretPassword'
+**Example:**
+```
+keytool -genkeypair -alias configkey -keyalg RSA -keysize 2048
+        -keystore config-server.p12 -storetype PKCS12 -validity 3650
 ```
 
-This will return an encrypted value that can be stored in the configuration file. For example, if your password is mySecretPassword, the result might look like:
+This command will generate a keystore (config-server.p12) containing a key pair. 
+<br> The alias configkey will be used for encryption/decryption.
 
-```{cipher}Xyz123EncryptedValue```
+## Set Up Config Server (application.yml):
 
-You can then store the encrypted value in your configuration files, like application.yml or application.properties.
+In the Config Server, you need to configure encryption using the keystore. 
+<br> The application.yml configuration looks like this:
 
-### Decrypting a Property
+```
+spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          key-store: classpath:config-server.p12  # Path to keystore
+          key-store-password: your-keystore-password
+          key-alias: configkey
+          key-password: your-key-password
 
-The Spring Cloud Config Server will automatically decrypt encrypted properties when requested. For example, if the client sends an encrypted property in the request, the server will decrypt it.
+```
 
-If you store an encrypted value in a file like:
+-  key-store: Path to the keystore file.
+-  key-store-password: Password to the keystore.
+-  key-alias: Alias for the key in the keystore.
+-  key-password: Password for the key.
 
-yaml
-Copy code
-myapp:
-  secret: '{cipher}Xyz123EncryptedValue'
-When the Config Server serves this configuration, it will automatically decrypt the property and return the original value (e.g., mySecretPassword) to the application.
+## Run Config Server:
+
+Start the Config Server. It will listen for requests to encrypt or decrypt properties.
+
+# Encrypt Sensitive Properties
+To encrypt a sensitive property (like a database password or an API key), you can use 
+<br> the encrypt endpoint provided by Spring Cloud Config Server.
+
+## Encrypt Property Using REST API:
+
+You can use the curl command or any HTTP client to send a POST request to the Config Server’s encrypt endpoint:
+
+```
+curl -X POST http://localhost:8888/encrypt -d 'my-secret-password'
+```
+
+The server will return an encrypted value:
+```
+{cipher}XkQbL7dpZJd8kZJltkN5A==
+```
+
+## Store the Encrypted Value:
+
+The encrypted value will look like {cipher}XkQbL7dpZJd8kZJltkN5A==. 
+<br> You can store this in your Git repository or file system as the configuration value.
+
+<br> For example, in application.properties or application.yml:
+
+```
+my.sensitive.property={cipher}XkQbL7dpZJd8kZJltkN5A==
+```
+
+## Set Up Spring Boot Application
+Your Spring Boot application needs to retrieve the encrypted property and automatically 
+<br> decrypt it using the keys defined in the Config Server.
+
+### Spring Boot Application Configuration (application.yml):
+
+Configure the Spring Boot application to use the Spring Cloud Config Server by adding the following to application.yml:
+
+```
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+```
+This tells your Spring Boot application to connect to the Config Server running on localhost:8888 to retrieve configuration properties.
+
+### Accessing Decrypted Property:
+
+In your Spring Boot application, you can access the decrypted properties as usual. 
+<br> For example, you can use @Value to inject the value into a class:
+
+```
+@Component
+public class MyComponent {
+
+    @Value("${my.sensitive.property}")
+    private String sensitiveProperty;
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Decrypted Property: " + sensitiveProperty);
+    }
+}
+```
+<br>
+The my.sensitive.property will be automatically decrypted by the Spring Cloud Config Server when your Spring Boot application starts.
+
+
+
+
+
+
+
+
+
+
+
