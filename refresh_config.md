@@ -117,6 +117,7 @@ Event-driven model allows microservices to dynamically react to configuration ch
 #### Conclusion
 Spring Cloud Bus provides a seamless way to propagate configuration changes across distributed systems. When integrated with Spring Cloud Config, it can ensure that your microservices remain in sync with the latest configuration.
 
+<img width="1295" alt="image" src="https://github.com/user-attachments/assets/51fc12ab-7993-4ec2-8de1-304ccad849aa" />
 
 
 
