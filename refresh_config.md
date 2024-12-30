@@ -119,6 +119,9 @@ Spring Cloud Bus provides a seamless way to propagate configuration changes acro
 
 <img width="1295" alt="image" src="https://github.com/user-attachments/assets/51fc12ab-7993-4ec2-8de1-304ccad849aa" />
 
+<img width="955" alt="image" src="https://github.com/user-attachments/assets/6e24904c-cfe5-4ce7-a5e7-10b3f40da116" />
+
+
 
 
 
