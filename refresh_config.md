@@ -121,7 +121,11 @@ Spring Cloud Bus provides a seamless way to propagate configuration changes acro
 
 <img width="955" alt="image" src="https://github.com/user-attachments/assets/6e24904c-cfe5-4ce7-a5e7-10b3f40da116" />
 
+### Refresh config at runtime using Spring Cloud Bus & Spring Cloud Config Monitor
 
+<img width="1375" alt="image" src="https://github.com/user-attachments/assets/e94c4034-2c90-4bb7-ba52-4fafae1ded43" />
+
+<img width="1392" alt="image" src="https://github.com/user-attachments/assets/185a3245-2e06-4a25-9f54-48d6148007d6" />
 
 
 
