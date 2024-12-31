@@ -4,7 +4,7 @@ In Docker, you can specify resource limits such as CPU and memory for your conta
 
 Here’s a detailed example of how to deploy a container with resource limits using Docker CLI and Docker Compose.
 
-# Resource Limits in Docker CLI
+### Resource Limits in Docker CLI
 When running a container via the Docker CLI, you can use the --memory and --cpus flags to set memory and CPU limits.
 
 ```
@@ -15,7 +15,7 @@ docker run -d \
   myapp-image
 ```
 
-# Resource Limits in Docker Compose
+### Resource Limits in Docker Compose
 You can specify resource limits for services defined in a docker-compose.yml file using the deploy.resources section. 
 **Note**: Resource limits are only supported in Docker Swarm mode.
 
@@ -39,7 +39,7 @@ services:
       - "8080:8080"
 ```
 
-# Scaling and Resource Limits in Docker Swarm
+### Scaling and Resource Limits in Docker Swarm
 In a Docker Swarm environment, you can also scale services while applying resource limits. 
 Docker will respect the CPU and memory constraints while scaling the service.
 
@@ -63,7 +63,7 @@ services:
       - "8080:8080"
 
 
-# Monitoring Resource Usage
+## Monitoring Resource Usage
 You can monitor the resource usage of containers using the `docker stats` command, which shows real-time metrics like CPU, memory, and network usage.
 
 ```
