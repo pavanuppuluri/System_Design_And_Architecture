@@ -41,3 +41,6 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Liveness and Readiness Probes](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/liveness_readiness_probes.md)
 <br>
+[Resource Limits in Docker](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/docker-resource-limits.md)
+<br>
+
