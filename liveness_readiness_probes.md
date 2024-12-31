@@ -32,7 +32,7 @@ management:
       enabled: true
 ```
 
-### Deploying to docker-compose (Optional)
+### Deploying to docker-compose
 
 A Spring Boot application (for example, a microservice), which depends on a Config Server for configuration, is configured with liveness 
 and readiness probes in a Docker Compose setup. 
@@ -42,6 +42,10 @@ In this case, the microservice depends on the Config Server being up and availab
 Here is how you can set up such a scenario in Docker Compose, where:
 
 #### Example Docker Compose Setup:
+
+- We can define the health checks for your Spring Boot app using healthcheck, test
+- Also, we can declare the dependencies using depends_on, condition
+
 In this example:
 
 - The Config Server provides configuration to the Microservice via the Spring Cloud Config mechanism.
