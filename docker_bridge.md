@@ -105,3 +105,9 @@ In this example:
 - We demonstrated how to expose one of the containers to the external network.
 
 This demonstrates the basic use of Docker’s bridge network driver to isolate and connect containers.
+
+## Note
+
+All the microservices that are launched within the same network can communicate with each other using service name
+
+
