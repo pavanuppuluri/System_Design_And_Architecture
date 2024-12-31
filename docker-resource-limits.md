@@ -1,3 +1,5 @@
+# Resource Limits in Docker
+
 In Docker, you can specify resource limits such as CPU and memory for your containers. These limits help ensure that a container doesn't use more resources than necessary, preventing it from affecting other containers or the host system.
 
 Here’s a detailed example of how to deploy a container with resource limits using Docker CLI and Docker Compose.
