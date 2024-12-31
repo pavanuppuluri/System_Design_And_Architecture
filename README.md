@@ -39,3 +39,5 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Refresh configurations at runtime using refresh/path](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/refresh_config.md)
 <br>
+[Liveness and Readiness Probes](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/liveness_readiness_probes.md)
+<br>
