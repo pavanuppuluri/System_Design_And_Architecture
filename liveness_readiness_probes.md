@@ -32,6 +32,74 @@ management:
       enabled: true
 ```
 
+### Deploying to docker-compose (Optional)
+
+A Spring Boot application (for example, a microservice), which depends on a Config Server for configuration, is configured with liveness 
+and readiness probes in a Docker Compose setup. 
+
+In this case, the microservice depends on the Config Server being up and available to retrieve its configurations.
+
+Here is how you can set up such a scenario in Docker Compose, where:
+
+#### Example Docker Compose Setup:
+In this example:
+
+- The Config Server provides configuration to the Microservice via the Spring Cloud Config mechanism.
+- The Microservice depends on the Config Server being available to retrieve its configuration.
+
+`docker-compose.yml`
+
+```
+version: '3.8'
+
+services:
+  config-server:
+    image: your-config-server-image:latest
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    healthcheck:
+      # Liveness Probe for Config Server
+      test: ["CMD", "curl", "--fail", "http://localhost:8888/actuator/health/livenessstate"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+    networks:
+      - app-network
+
+  microservice:
+    image: your-microservice-image:latest
+    container_name: microservice
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:8888
+    healthcheck:
+      # Liveness Probe for Microservice
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/actuator/health/livenessstate"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+    depends_on:
+      config-server:
+        condition: service_healthy
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+```
+
+#### How the Condition Works:
+- When you use depends_on with condition: service_healthy, Docker will wait for the specified service (in this case, config-server) to be marked as healthy according to its health check before starting the dependent service (the microservice).
+- If the Config Server is not healthy (for example, if it fails the health check), Docker will wait and not start the microservice.
+
 ### Deploying to Kubernetes (Optional)
 
 When deploying your Spring Boot application to Kubernetes or a similar orchestrator, you can configure Kubernetes to check these probes for managing the application's lifecycle.
