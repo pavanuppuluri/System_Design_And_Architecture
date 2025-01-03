@@ -27,6 +27,15 @@ in our Spring Boot based microservices
 <img width="450" alt="image" src="https://github.com/user-attachments/assets/f0328520-63db-4c52-b13c-c6cca865b879" />
 
 
+<img width="968" alt="image" src="https://github.com/user-attachments/assets/168e77bd-5262-412f-ad4a-25e2e4e5c999" />
+
+Other alternatives include
+- etcd
+- Consul
+- Apache zookeeper
+- Netflix Ribbon client-side
+
+
 
 
 
