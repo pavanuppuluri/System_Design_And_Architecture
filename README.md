@@ -48,3 +48,5 @@ This repo contains various concepts and best practices related to software devel
 
 [Zero Downtime Strategies](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/zero-downtime.md)
 <br>
+[Zero Downtime Strategies - Database changes](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/zero-downtime-db.md)
+<br>
