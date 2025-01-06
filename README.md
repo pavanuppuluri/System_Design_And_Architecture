@@ -44,3 +44,7 @@ This repo contains various concepts and best practices related to software devel
 [Resource Limits in Docker](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/docker-resource-limits.md)
 <br>
 
+
+
+[Zero Downtime Strategies](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/zero-downtime.md)
+<br>
