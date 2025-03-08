@@ -5,14 +5,22 @@ The three main types are **cold standby**, **warm standby**, and **hot standby**
 
 **Cold Standby**
 ---
-<img width="825" alt="image" src="https://github.com/user-attachments/assets/d6339988-be37-4386-a7fe-db17e67cddd9" />
+
+Cold Standby is a disaster recovery strategy where a backup system (server or database) remains powered off or inactive until needed. It is only started and restored manually when the primary system fails.
+
+<img width="668" alt="image" src="https://github.com/user-attachments/assets/f305315b-4afe-4f65-961b-dccae99b438d" />
+
+<br>
+
+<img width="404" alt="image" src="https://github.com/user-attachments/assets/77fb7fcb-4575-468c-9117-c7492054f37d" />
 
 **Warm Standby**
 ---
 In this we will use Replication instead of periodic backup. It constantly copies database data from Primary database to Secondary database.
 SO instead of having a periodic backup that need to be manuallt restored, we make sure that second database host is always warm (It means it always gets a copy of the data and waiting for the trigger to ready-to-go). 
 
-<img width="640" alt="image" src="https://github.com/user-attachments/assets/f8f766f2-0655-486d-a5fc-e614fecfc806" />
+<img width="311" alt="image" src="https://github.com/user-attachments/assets/d7f3d114-7946-4a0c-8ce1-9d442249d0f9" />
+
 
 In a Warm Standby approach, replication is used to keep the standby database updated periodically. Unlike Hot Standby (which is real-time), Warm Standby relies on delayed or batch-based replication methods. Here are the key replication techniques used in Warm Standby:
 
