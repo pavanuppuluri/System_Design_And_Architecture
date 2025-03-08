@@ -1,6 +1,6 @@
 # Database Isolation Levels
 
-Database isolation levels define how transactions interact with each other, particularly in a multi-user environment. <br>
+Database isolation levels define how transactions interact with each other, particularly in a multi-user environment. <br><br>
 There are four isolation levels:
 
 **1. Read Uncommitted**
@@ -31,5 +31,9 @@ There are four isolation levels:
 - **Description**: The strictest level; transactions are executed in a way that ensures complete isolation.
 - **Issue**: Prevents all concurrency issues but can significantly reduce performance.
 - **Example**:
-  - If Transaction A is reading a dataset, Transaction B must wait until Transaction A completes before it can read or modify the same data.
- 
+  - If Transaction A is reading a dataset, Transaction B must wait until <br> Transaction A completes before it can
+    read or modify the same data.
+
+
+ <img width="671" alt="image" src="https://github.com/user-attachments/assets/31b0bb09-23e0-4ffc-aa87-55984ab9c8b9" />
+
