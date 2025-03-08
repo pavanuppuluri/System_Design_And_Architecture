@@ -45,3 +45,38 @@ In a Warm Standby approach, replication is used to keep the standby database upd
 | **Asynchronous Replication** | Near Real-Time     | Moderate (risk of lag) | Lower overhead, distributed databases |
 
 
+**Hot Standby**
+---
+
+<img width="387" alt="image" src="https://github.com/user-attachments/assets/f643e7fa-5a27-4844-b737-ade966947ab5" />
+
+**Hot Standby** is a high-availability database replication strategy where a standby (backup) database **continuously synchronizes with the primary database in real-time**. The standby server is always running and can take over immediately if the primary database fails.
+
+<img width="658" alt="image" src="https://github.com/user-attachments/assets/e5bfe8eb-b633-4623-8dae-d410c7a627ef" />
+
+<img width="671" alt="image" src="https://github.com/user-attachments/assets/7c16bcb4-d5b1-47f6-97cd-a34af29d3622" />
+
+<img width="668" alt="image" src="https://github.com/user-attachments/assets/d5f55ceb-e48e-4a6c-863c-2c229b2b1f5f" />
+
+---
+#### Example Implementations
+---
+| Standby Type  | Database Example  | Implementation Method |
+|--------------|------------------|----------------------|
+| **Cold Standby**  | **PostgreSQL**  | `pg_dump` for full backups, `pg_restore` for recovery |
+|                  | **MySQL**        | `mysqldump` for full backups, `mysqlbinlog` for incremental backups |
+|                  | **SQL Server**   | `BACKUP DATABASE` and `RESTORE DATABASE` commands |
+|                  | **Oracle**       | **Oracle RMAN (Recovery Manager)** for cold backups |
+| **Warm Standby**  | **PostgreSQL**  | **PostgreSQL Log Shipping** (`WAL archiving` with manual recovery) |
+|                  | **MySQL**        | **MySQL Delayed Replication** (`MASTER_DELAY` option) |
+|                  | **SQL Server**   | **SQL Server Log Shipping** (`BACKUP LOG`, `RESTORE LOG`) |
+|                  | **Oracle**       | **Oracle Data Guard** in **Maximum Performance mode** |
+| **Hot Standby**  | **PostgreSQL**  | **PostgreSQL Streaming Replication** (`hot_standby`, `primary_conninfo`) |
+|                  | **MySQL**        | **MySQL Group Replication**, **Percona XtraDB Cluster**, or **InnoDB Cluster** |
+|                  | **SQL Server**   | **SQL Server Always On Availability Groups** |
+|                  | **Oracle**       | **Oracle Data Guard (Maximum Availability mode)** or **Oracle RAC** |
+
+
+
+
+
