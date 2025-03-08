@@ -33,10 +33,10 @@ stored as-is and later transformed based on analytical needs.
 | AWS Service               | Role in Data Lake |
 |---------------------------|------------------|
 | **Amazon S3**             | Scalable, durable, and cost-effective storage for raw data. |
-| **AWS Glue**              | Serverless ETL (Extract, Transform, Load) to prepare and catalog data. |
+| **AWS Glue**              | Createa a schemha for the above data. <br> Serverless ETL (Extract, Transform, Load) to prepare and catalog data. |
+| **Amazon Redshift Spectrum** | Queries structured and semi-structured data directly from S3. |
 | **Amazon Athena**         | Serverless SQL-based querying on S3 data without infrastructure setup. |
 | **AWS Lake Formation**    | Automates the setup of a secure data lake with governance and permissions. |
-| **Amazon Redshift Spectrum** | Queries structured and semi-structured data directly from S3. |
 | **AWS Kinesis**           | Real-time data streaming into the data lake. |
 | **Amazon QuickSight**     | BI and visualization tool for insights from data lakes. |
 | **AWS IAM & Lake Formation Security** | Provides access control and governance for stored data. |
