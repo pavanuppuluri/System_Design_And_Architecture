@@ -89,3 +89,52 @@ public void nestedTransactionMethod() { ... }
 - Use NEVER or NOT_SUPPORTED for non-transactional methods.
 - Use NESTED when partial rollbacks are needed.
 
+---
+**Examples**
+
+| **Propagation Level** | **Real-World Scenario** |
+|----------------------|-----------------------|
+| **REQUIRED** (default) | Placing an order (order and stock deduction must be in the same transaction) |
+| **REQUIRES_NEW** | Logging errors (should always be saved even if the main transaction fails) |
+| **SUPPORTS** | Fetching a user profile (works with or without a transaction) |
+| **NOT_SUPPORTED** | Generating reports (should not run inside a transaction) |
+| **MANDATORY** | Payment processing (must always be inside a transaction) |
+| **NEVER** | Sending email notifications (must not be part of a transaction) |
+| **NESTED** | Order status update (partial rollback without affecting the main transaction) <br> **Scenario**: Updating order status should be partially rollback-able, without affecting the entire transaction|
+
+
+**NESTED**
+
+📌 Scenario: Updating order status should be partially rollback-able, without affecting the entire transaction.
+
+```
+@Service
+public class OrderService {
+    @Autowired
+    private OrderStatusService orderStatusService;
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateOrder(Long orderId) {
+        try {
+            updatePaymentStatus(orderId);
+            orderStatusService.updateOrderStatus(orderId);
+        } catch (Exception e) {
+            // Payment update fails, but order status change is rollbacked separately
+        }
+    }
+
+    private void updatePaymentStatus(Long orderId) {
+        // Update payment status
+    }
+}
+
+@Service
+public class OrderStatusService {
+    @Transactional(propagation = Propagation.NESTED)
+    public void updateOrderStatus(Long orderId) {
+        // Update order status
+        // If this fails, only this part is rolled back
+    }
+}
+```
+💡 If updateOrderStatus fails, only its changes are rolled back, but updatePaymentStatus remains committed.
