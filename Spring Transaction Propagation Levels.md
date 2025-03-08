@@ -103,9 +103,56 @@ public void nestedTransactionMethod() { ... }
 | **NESTED** | Order status update (partial rollback without affecting the main transaction) <br> **Scenario**: Updating order status should be partially rollback-able, without affecting the entire transaction|
 
 
+**REQUIRES_NEW**
+
+📌 Scenario: Logging system should work independently even if an order fails.
+
+```
+@Service
+public class OrderService {
+    @Autowired
+    private AuditService auditService;
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void placeOrder(Long userId, Long productId) {
+        try {
+            deductStock(productId);
+            saveOrder(userId, productId);
+        } catch (Exception e) {
+            auditService.logFailure(userId, "Order failed: " + e.getMessage());
+        }
+    }
+}
+
+@Service
+public class AuditService {
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void logFailure(Long userId, String message) {
+        // Save error log
+    }
+}
+```
+
+💡 If placeOrder fails, the audit log is still saved because it runs in a separate transaction.
+
+**MANDATORY**
+
+📌 **Scenario**: Payment processing must be done within an existing transaction; otherwise, it should fail.
+
+```
+@Service
+public class PaymentService {
+    @Transactional(propagation = Propagation.MANDATORY)
+    public void processPayment(Long orderId) {
+        // Deduct balance from user account
+        // Save payment details
+    }
+}
+```
+
 **NESTED**
 
-📌 Scenario: Updating order status should be partially rollback-able, without affecting the entire transaction.
+📌 **Scenario**: Updating order status should be partially rollback-able, without affecting the entire transaction.
 
 ```
 @Service
