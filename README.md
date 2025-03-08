@@ -47,3 +47,6 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Zero Downtime Strategies - Database changes](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/zero-downtime-db.md)
 <br>
+[Observability & Monitoring](https://github.com/pavanuppuluri/Observability-and-Monitoring-of-Microservices)
+<br>
+
