@@ -50,4 +50,7 @@ This repo contains various concepts and best practices related to software devel
 [Observability & Monitoring](https://github.com/pavanuppuluri/Observability-and-Monitoring-of-Microservices)
 <br>
 [Database Failover Strategies](https://github.com/pavanuppuluri/system-design-and-architecture-best-practices/blob/master/database_fail_over.md)
+<br>
+[Data Lake](https://github.com/pavanuppuluri/system-design-and-architecture-best-practices/blob/master/Data%20Lake.md)
+
 
