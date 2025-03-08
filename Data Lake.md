@@ -53,6 +53,5 @@ stored as-is and later transformed based on analytical needs.
 - 4️⃣ Visualize & Share Insights → Use Amazon QuickSight or integrate with third-party BI tools.
 - 5️⃣ Secure & Govern Data → Use AWS Lake Formation and IAM roles for access control.
 
-<img width="638" alt="image" src="https://github.com/user-attachments/assets/6c423f33-eedf-4bce-ad42-5afaa9cf97c2" />
-
+<img width="476" alt="image" src="https://github.com/user-attachments/assets/c6718a03-36db-4f74-a3d4-14a384592a21" />
 
