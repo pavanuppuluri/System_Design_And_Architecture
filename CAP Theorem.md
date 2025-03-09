@@ -75,6 +75,13 @@ MongoDB prioritizes **Consistency** over **Availability** when used in a distrib
 - If a partition occurs and the primary is isolated, MongoDB will refuse writes rather than allow inconsistent data across nodes.
 - Read-after-write consistency is ensured when reading from the primary.
 
+
+## MongoDB: Single Master, trades off Availability
+
+<img width="1339" alt="image" src="https://github.com/user-attachments/assets/aee811f5-c33c-46ed-abda-8b5bbfb31cfd" />
+
+
+
 ---
 
 ## **Cassandra is AP (Availability + Partition Tolerance)**
@@ -96,6 +103,11 @@ Cassandra is designed to prioritize **Availability** over **Consistency** in the
 #### **Why Cassandra is NOT CP?**
 - During a partition, Cassandra **does not stop serving data** even if it may be inconsistent.
 - Strong consistency can be achieved, but doing so reduces availability.
+
+
+## Cassandra: No Single Master, Eventually Consistent
+
+<img width="467" alt="image" src="https://github.com/user-attachments/assets/623346a5-236e-4d62-ab5a-9ec517adf37b" />
 
 ---
 
