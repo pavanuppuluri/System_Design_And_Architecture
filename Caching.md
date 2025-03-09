@@ -53,3 +53,7 @@ Caching is highly beneficial for read-heavy systems as it,
 - improves performance, and
 - scales efficiently to handle high traffic.  
 
+#### A Few Caching Technologies
+
+<img width="848" alt="image" src="https://github.com/user-attachments/assets/f703c981-ebdd-4a6f-954c-0a9529b1667c" />
+
