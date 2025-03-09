@@ -47,5 +47,9 @@ Read-heavy systems primarily involve retrieving and displaying data rather than 
 - Caching enhances accessibility and reduces load times.  
 
 #### Conclusion  
-Caching is highly beneficial for read-heavy systems as it reduces database queries, improves performance, and scales efficiently to handle high traffic.  
+
+Caching is highly beneficial for read-heavy systems as it,
+- reduces database queries,
+- improves performance, and
+- scales efficiently to handle high traffic.  
 
