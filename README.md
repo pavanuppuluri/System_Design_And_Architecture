@@ -53,6 +53,8 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Data Lake](https://github.com/pavanuppuluri/system-design-and-architecture-best-practices/blob/master/Data%20Lake.md)
 <br>
+[CAP Theorem](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/CAP%20Theorem.md)
+<br>
 [Isolation Levels](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/Isolation%20Levels.md)
 <br>
 [Spring Transaction Propagation Levels](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/Spring%20Transaction%20Propagation%20Levels.md)
