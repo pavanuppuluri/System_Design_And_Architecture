@@ -48,5 +48,82 @@ Since network partitions (**P**) are inevitable in distributed systems, a databa
 ## **Conclusion**  
 - **Choose CP** when you need strict consistency (e.g., banking, financial apps).  
 - **Choose AP** when availability is critical (e.g., social networks, real-time analytics).  
-- **CA systems** exist only in non-distributed environments, suitable for traditional relational databases.  
+- **CA systems** exist only in non-distributed environments, suitable for traditional relational databases.
+
+---
+# **Why is MongoDB CP and Cassandra AP?**
+
+The classification of **MongoDB as CP** and **Cassandra as AP** is based on how they handle **Consistency, Availability, and Partition Tolerance** in a distributed environment.
+
+---
+
+## **MongoDB is CP (Consistency + Partition Tolerance)**
+MongoDB prioritizes **Consistency** over **Availability** when used in a distributed setup (such as a replica set). Here's why:
+
+### **1. Strong Consistency (C)**  
+- MongoDB uses a **primary-secondary replication model** (also known as leader-follower).  
+- All writes go to the **primary** node, and secondaries replicate the data asynchronously.  
+- If a client reads from the primary, it always gets the latest data (**strong consistency**).  
+- If you enforce **write concerns** (e.g., `{ w: "majority" }`), MongoDB ensures that data is written to a majority of nodes before acknowledging the write.
+
+### **2. Partition Tolerance (P)**  
+- If the network partitions (e.g., primary node gets isolated), MongoDB will **elect a new primary** if a majority of nodes can still communicate.  
+- However, during the election process, **writes are rejected** until a new primary is elected.  
+- This means MongoDB sacrifices **Availability** temporarily in favor of maintaining **Consistency**.
+
+#### **Why MongoDB is NOT AP?**
+- If a partition occurs and the primary is isolated, MongoDB will refuse writes rather than allow inconsistent data across nodes.
+- Read-after-write consistency is ensured when reading from the primary.
+
+---
+
+## **Cassandra is AP (Availability + Partition Tolerance)**
+Cassandra is designed to prioritize **Availability** over **Consistency** in the presence of network partitions. Here’s how:
+
+### **1. High Availability (A)**  
+- Cassandra follows a **peer-to-peer architecture** (no single primary node).  
+- Writes and reads can be handled by any node in the cluster.  
+- Even if some nodes are down or unreachable due to a partition, the system continues to accept writes (though some data may be stale).  
+
+### **2. Partition Tolerance (P)**  
+- In case of a network partition, Cassandra ensures that **nodes continue to accept writes and reads** rather than rejecting requests.  
+- It uses a technique called **eventual consistency**, meaning updates will propagate across the cluster over time, but some nodes might temporarily serve stale data.
+
+### **3. Tunable Consistency Model**  
+- Cassandra allows users to adjust consistency using parameters like **QUORUM, ONE, ALL** for reads and writes.  
+- By default, **strong consistency is not guaranteed**, but it can be enforced at the cost of availability.
+
+#### **Why Cassandra is NOT CP?**
+- During a partition, Cassandra **does not stop serving data** even if it may be inconsistent.
+- Strong consistency can be achieved, but doing so reduces availability.
+
+---
+
+## **Summary Table: MongoDB (CP) vs. Cassandra (AP)**
+
+| Feature        | **MongoDB (CP)**                      | **Cassandra (AP)**                     |
+|--------------|--------------------------------|--------------------------------|
+| **Architecture** | Primary-Secondary (Leader-Follower) | Peer-to-Peer (No Single Leader) |
+| **Consistency** | Strong (if reading from primary) | Eventual (Tunable via QUORUM, ONE, etc.) |
+| **Availability** | Low (writes rejected during partition) | High (writes accepted even in partition) |
+| **Partition Tolerance** | Yes (new primary elected) | Yes (nodes operate independently) |
+| **Use Case** | Banking, Transactions, Logs | Social Media, Real-time Analytics |
+
+---
+
+## **Final Thoughts**
+- Choose **MongoDB (CP)** if you need **strong consistency** and are okay with temporary unavailability during failures.
+- Choose **Cassandra (AP)** if you need **high availability** and can tolerate eventual consistency.
+
+<br>
+
+**Note**
+Be sure to understand the requirements about scale, consistency, and availability before proposing a specific database.
+
+
+
+
+
+
+
 
