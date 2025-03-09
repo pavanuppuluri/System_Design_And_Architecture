@@ -117,7 +117,7 @@ Cassandra is designed to prioritize **Availability** over **Consistency** in the
 
 <br>
 
-**Note**
+**Note** <br>
 Be sure to understand the requirements about scale, consistency, and availability before proposing a specific database.
 
 
