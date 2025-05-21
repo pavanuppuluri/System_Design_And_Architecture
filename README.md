@@ -15,6 +15,8 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Deployment, Portability & Scalability](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/deployment_portablity_scalability.md)
 <br>
+[Kubernetes concepts](https://github.com/pavanuppuluri/kubernetes)
+<br>
 [Blue-Green Deployment - Kubernetes](https://github.com/pavanuppuluri/kubernetes-deployments)
 <br>
 [Virtual Machine vs Container](https://github.com/pavanuppuluri/software-design-architecture-concepts/blob/master/container_vs_vm.md)
