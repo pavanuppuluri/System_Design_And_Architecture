@@ -1,0 +1,26 @@
+# Disaster Recovery (DR) for your AWS application?
+
+Don't simply think like - I will replicate it to another region.
+
+Focus should be on - how DR strategies are chosen, and what are the different strategies. As an SA, you will be responsible for talking to the app team and coming up with an appropriate DR strategy. 
+
+There are different DR options to choose from depending on RTO (Recovery Time Objective) and RPO (Recovery Point Objective). The available DR strategies ordered by highest to lowest RTO/RPO (and lowest to highest cost) are:
+- Backup and Restore
+- Pilot Light
+- Warm Standby
+- Multi-site Active/Active
+
+Then explain one of the DR strategies in detail. Preferably Multisite Active/Active because it’s used in most critical prod applications. Architecture attached.
+
+- The most critical part for DR is the database. In this case, we are utilizing Global Table of DynamoDB for active-active mode. If you are using SQL database like Aurora, keep in mind that Aurora Global Database is Active-Passive, but new Aurora DSQL is active-active.
+
+- Application stack is running on EC2 with Auto Scaling Group. You run minimum two EC2s in each region to keep it highly available
+
+- Load Balancers are regional service, hence we are using one load balancer in each region, distributing the traffic to that region
+
+- Route53 sends traffic to one of the two Load Balancers based on geolocation and latency
+
+- RPO/RTO is minimum in this architecture because data is constantly being replicated, and EC2s are up and running with minimum count of two in both regions. In some cases, applications make the desired count higher to keep higher number of EC2 running in the second region for lower RTO
+
+
+<img width="1218" height="785" alt="image" src="https://github.com/user-attachments/assets/b24e521e-15dc-477e-ab6b-58c4c64ddd42" />
