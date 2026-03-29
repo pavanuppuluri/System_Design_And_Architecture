@@ -65,7 +65,7 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [Caching](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/Caching.md)
 <br>
-[Disaster Recovery](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/Disaster%20Recovery.md))
+[Disaster Recovery](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/Disaster%20Recovery.md)
 
 
 
