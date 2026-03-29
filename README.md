@@ -68,7 +68,8 @@ This repo contains various concepts and best practices related to software devel
 [Disaster Recovery](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/Disaster%20Recovery.md)
 <br>
 [System Design & Architecture Approaches](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/SystemDesign_Architecture_Approaches.pdf)
-
+<br>
+[Articles](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/articles.pdf)
 
 
 
