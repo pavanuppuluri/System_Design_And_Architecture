@@ -69,7 +69,7 @@ This repo contains various concepts and best practices related to software devel
 <br>
 [System Design & Architecture Approaches](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/SystemDesign_Architecture_Approaches.pdf)
 <br>
-[Articles](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/articles.pdf)
+[Articles](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/articles.md)
 
 
 
