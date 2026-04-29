@@ -70,6 +70,10 @@ This repo contains various concepts and best practices related to software devel
 [System Design & Architecture Approaches](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/SystemDesign_Architecture_Approaches.pdf)
 <br>
 [Articles](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/articles.md)
+<br>
+[Java Memory Management](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/java_memory_management.pdf)
+<br>
+[Memory Visualisation Tools](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/java_memory_tools.pdf)
 
 
 
