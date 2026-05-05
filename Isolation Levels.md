@@ -26,6 +26,9 @@ There are four isolation levels:
   - Transaction A selects a row.
   - Transaction B attempts to update the row but must wait for Transaction A to commit or roll back.
   - If Transaction A reads the row again, it sees the same data.
+ 
+  <img width="455" height="281" alt="image" src="https://github.com/user-attachments/assets/df8d5a77-a7e6-4e83-b4cd-8424d3c03550" />
+
     
 **4. Serializable**
 - **Description**: The strictest level; transactions are executed in a way that ensures complete isolation.
