@@ -17,7 +17,7 @@ Cold Standby is a disaster recovery strategy where a backup system (server or da
 **Warm Standby**
 ---
 In this we will use Replication instead of periodic backup. It constantly copies database data from Primary database to Secondary database.
-SO instead of having a periodic backup that need to be manuallt restored, we make sure that second database host is always warm (It means it always gets a copy of the data and waiting for the trigger to ready-to-go). 
+So instead of having a periodic backup that need to be manually restored, we make sure that second database host is always warm (It means it always gets a copy of the data and waiting for the trigger to ready-to-go). 
 
 <img width="311" alt="image" src="https://github.com/user-attachments/assets/d7f3d114-7946-4a0c-8ce1-9d442249d0f9" />
 
