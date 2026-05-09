@@ -74,6 +74,8 @@ This repo contains various concepts and best practices related to software devel
 [Java Memory Management](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/java_memory_management.pdf)
 <br>
 [Memory Visualisation Tools](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/java_memory_tools.pdf)
+<br>
+[Route 53, Glue, Athena, RedShift etcc.](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/aws_architecture_notes.pdf)
 
 
 
