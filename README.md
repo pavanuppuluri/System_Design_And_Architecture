@@ -80,6 +80,7 @@ This repo contains various concepts and best practices related to software devel
 [Route 53, Glue, Athena, RedShift etcc.](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/aws_architecture_notes.pdf)
 <br>[AWS Architecture Patterns - Part1](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/AWS_Production_Patterns.pdf)
 <br>[AWS Architecture Patterns - Part2](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/ALB_ASG_EC2_Architecture.pdf)
+<br>[AWS Architecture Patterns, Istio](https://github.com/pavanuppuluri/System_Design_And_Architecture/blob/master/Istio_API_Gateway_EKS_Guide.pdf)
 
 
 
