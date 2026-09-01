@@ -47,11 +47,11 @@ Tip: Is my code depending on abstractions, not concrete implementations?
 Connecting the Dots: A Real-World Example
 Imagine you're building an e-commerce system. To process payments, you need a PaymentService. Instead of creating one massive class with multiple responsibilities and dependencies (like handling different payment types and processing orders), you could:
 
-SRP: Have separate classes like CreditCardPayment and PayPalPayment, each handling one responsibility.
-OCP: Extend PaymentService to add new payment methods without altering the existing code.
-LSP: Ensure that CreditCardPayment can be swapped with PayPalPayment without breaking the system.
-ISP: Avoid forcing CreditCardPayment to implement methods related to BankTransfer.
-DIP: Make PaymentService depend on an abstract IPaymentMethod interface, not concrete payment types.
+- SRP: Have separate classes like CreditCardPayment and PayPalPayment, each handling one responsibility.
+- OCP: Extend PaymentService to add new payment methods without altering the existing code.
+- LSP: Ensure that CreditCardPayment can be swapped with PayPalPayment without breaking the system.
+- ISP: Avoid forcing CreditCardPayment to implement methods related to BankTransfer.
+- DIP: Make PaymentService depend on an abstract IPaymentMethod interface, not concrete payment types.
 
 By following SOLID principles, your payment system becomes easier to extend, test, and maintain—without the constant fear of breaking the code when adding new features.
 
