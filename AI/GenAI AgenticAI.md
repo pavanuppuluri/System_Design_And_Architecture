@@ -6,6 +6,7 @@ For example, a traditional ML model might predict whether a loan applicant is hi
 
 In an enterprise application, I would use traditional ML for well-defined prediction tasks and Generative AI for language-heavy tasks such as summarization, document understanding and natural-language interaction. These approaches can also be combined.
 
+---
 #### What is an LLM, and how does it generate responses?
 Answer:
 
@@ -13,6 +14,7 @@ A Large Language Model is a neural network trained on large amounts of data to p
 
 An LLM does not automatically know our latest internal business data. For that, we may need RAG, tools, or integration with enterprise systems.
 
+---
 #### What are tokens, tokenization, context windows and temperature?
 
 - Tokens: Units of text processed by a model. A token may represent a word, part of a word or punctuation.
@@ -22,6 +24,7 @@ An LLM does not automatically know our latest internal business data. For that, 
 
 For example, an agent processing a 300-page policy manual should not blindly send the entire document to the model on every request. RAG can retrieve only relevant sections, reducing unnecessary context and often lowering cost and latency.
 
+---
 #### What is the difference between Generative AI, an AI assistant, an AI agent and agentic AI?
 
 - Generative AI is the underlying capability to generate content.
@@ -29,4 +32,5 @@ For example, an agent processing a 300-page policy manual should not blindly sen
 - An AI agent can select and execute tools to accomplish a task.
 - Agentic AI describes systems that use **planning**, **decisions** and **actions** across one or more steps to pursue a **goal**.
 
+---
 
