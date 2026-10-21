@@ -150,7 +150,45 @@ The typical flow is:
 5. The result is returned to the LLM, which may call another tool or generate the final answer.
 
 
-**The LLM selects the tool, but the application executes it. This distinction is fundamental to agent security.**
+The **LLM selects the tool, but the application executes** it. This distinction is fundamental to agent security.
+
+---
+
+#### 
+How do you expose a business capability through AWS Lambda?
+
+I would create a Lambda function behind an API or configure it as an agent tool through an appropriate Bedrock Agent action group.
+
+For example, a getInvoiceStatus tool might accept an invoice ID and return its payment status.
+
+The implementation should include:
+
+- A clear input schema and tool description.
+- Server-side input validation.
+- Authentication and authorization.
+- Least-privilege IAM permissions.
+- Timeouts and controlled error handling.
+- Structured responses and audit logging.
+
+I would keep business logic in the service layer rather than embedding critical business rules in the prompt. The same validated service could be reused by the agent and other applications.
+
+---
+
+#### What is the difference between an API, a tool and a Bedrock Agent action group?
+An API exposes a software capability through a defined interface.
+
+A tool is the capability presented to an agent, together with its description and input/output contract.
+
+An action group in Bedrock Agents groups related actions and defines how the agent can invoke them, commonly through an API schema and Lambda executor.
+
+For example, a customer-management API might expose operations for retrieving a customer and updating contact information. The agent could use these as tools through a configured action group.
+
+The API defines what the system can do; the tool definition helps the model understand when and how to request it.
+
+---
+
+
+
 
 
 
