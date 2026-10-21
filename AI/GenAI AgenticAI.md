@@ -81,6 +81,32 @@ For an enterprise policy assistant, I would usually begin with prompt engineerin
 
 ---
 
+#### What is AWS Bedrock, and why use it?
+
+Amazon Bedrock is a managed AWS service for building generative AI applications using supported foundation models and related capabilities.
+
+It provides access to models, model invocation APIs and features for building applications, including Knowledge Bases, Guardrails and agent capabilities, depending on the selected model and configuration.
+
+I would consider Bedrock when an organization wants to integrate generative AI with its AWS environment, apply centralized security controls and avoid managing foundation-model infrastructure directly.
+
+---
+
+#### How do you choose a foundation model on Bedrock?
+
+I would compare models using a representative evaluation dataset rather than choosing based on a general benchmark alone.
+
+My criteria would include:
+
+- Task accuracy and instruction following.
+- Tool-calling reliability and structured-output quality.
+- Context-window requirements.
+- Latency and throughput.
+- Input and output token costs.
+- Data handling, regional availability and organizational requirements.
+  
+For example, a simple document classifier may work well with a smaller, lower-cost model, while a complex incident investigation may justify a more capable model.
+
+I would benchmark both against realistic requests, including ambiguous inputs and tool failures, and choose the least expensive model that meets the required quality and reliability thresholds.
 
 
 
