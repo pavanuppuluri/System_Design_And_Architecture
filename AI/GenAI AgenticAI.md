@@ -1,3 +1,5 @@
+### AI, LLM and Agentic AI fundamentals
+
 #### What is Generative AI, and how is it different from traditional AI and machine learning?
 
 Traditional AI and machine learning are commonly used to predict outcomes, classify data, detect anomalies or make recommendations. Generative AI produces new content, such as text, code, images and summaries, based on patterns learned during training.
@@ -108,7 +110,47 @@ For example, a simple document classifier may work well with a smaller, lower-co
 
 I would benchmark both against realistic requests, including ambiguous inputs and tool failures, and choose the least expensive model that meets the required quality and reliability thresholds.
 
+---
 
+#### How do you manage the LLM context window?
+
+I would avoid treating the context window as a substitute for good information management.
+
+Typical techniques include:
+
+- Retrieving only relevant document chunks through RAG.
+- Summarizing older conversation history.
+- Keeping structured task state separate from conversation history.
+- Removing duplicate or irrelevant tool results.
+- Limiting the number of retrieved chunks.
+- Using different context strategies for different task stages.
+
+For example, an agent investigating an incident over several minutes can retain a compact incident summary, discovered facts and completed steps instead of resending every tool response at every iteration.
+
+---
+
+#### Design an HR assistant that answers policy questions and escalates unresolved questions.
+
+I would build a React-based interface backed by an authenticated API and an AWS-based RAG service.
+
+<img width="702" height="477" alt="image" src="https://github.com/user-attachments/assets/1cc17ba4-fd73-45c1-ad2e-0761297f33ba" />
+
+
+### AI agents, tools and orchestration
+
+#### What is a tool in an AI agent?
+
+A tool is a capability an agent can invoke to interact with an external system or perform an operation. Examples include querying a database, calling a REST API, searching documents or updating a business record.
+
+The typical flow is:
+1. The application sends the user's request and available tool definitions to the LLM.
+2. The LLM returns a tool-call request with arguments.
+3. The application validates the arguments and checks authorization.
+4. The application executes the tool.
+5. The result is returned to the LLM, which may call another tool or generate the final answer.
+
+
+**The LLM selects the tool, but the application executes it. This distinction is fundamental to agent security.**
 
 
 
